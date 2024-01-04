@@ -9,6 +9,7 @@ const port = 3000
 app.use(express.json());
 app.use(cors())
 
+const userRoute = require('./src/module/User/user.route')
 
 
 
@@ -22,7 +23,7 @@ mongoose.connect('mongodb://social-media:LuaD6XcvDQRsMklE@ac-onjpk5k-shard-00-00
 
 
 
-
+app.use('/user-route', userRoute )
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

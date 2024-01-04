@@ -3,14 +3,16 @@ const { Users } = require("./user.model");
 
 const createUser = async (req, res) => {
   try {
-    const newUser = await Users(req.body);
+    const newUser = new Users(req.body);
     const result = await newUser.save();
     res.status(200).json({
       result,
     });
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({
-      error: "there was a server side error",
+       
+      error
     });
   }
 };
